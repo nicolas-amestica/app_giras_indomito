@@ -1,9 +1,6 @@
 # Proyecto
 
-El sistema de Administración de Viviendas tiene como misión: almacenar y gestionar casas y departamento pertenecientes a la Dirección de Bienestar y/o entregados a esta alta repartición para su administración, teniendo como finalidad, el tener un mayor de volumen de viviendas, para ir en directo beneficio del personal de carabineros de chile.
-la aplicación DEBERA CONTAR con un ingreso de viviendas, arrendatarios (asignación y/o restitución), modificación, búsqueda por distintos tipos de filtro, panel de gestión el cual le permite a la jefatura tomar decisiones según indicadores, histórico del personal que ha ocupado la vivienda, reparaciones de estas, postulaciones, mantenedor de usuarios, bitácora.
-
-Con respecto a las actualizaciones de información del sistema (funcionarios, repartición, grados, cargos, estado civil, etc.) el aplicativo deberá conectar en línea con el Departamento P.7 (datos del P.N.S. y P.N.I.), Sistema de Remuneraciones, Sistema de Personal P.1. P.2, a fin de aminorar el tema de administración del citado sistema.
+Sistema de admninistración d eevento de Giras Indómito
 
 
 ## Comenzando
@@ -13,7 +10,7 @@ Con respecto a las actualizaciones de información del sistema (funcionarios, re
 1. Asegúrate de tener Docker y Docker Compose instalados en tu sistema.
 2. Clona el repositorio del proyecto en tu máquina local:
    ```sh
-   git clone https://github.com/dmartinezbello/app-viviendas-carabineros.git
+   git clone https://github.com/nicolas-amestica/app_giras_indomito.git
    ```
 3. Navega hasta el directorio donde se encuentra el archivo `docker-compose.yml`.
 4. Agregar hosts para acceder a los dominios personalizados de los contenedores
@@ -41,10 +38,10 @@ Con respecto a las actualizaciones de información del sistema (funcionarios, re
    ::1 localhost
    
    # Config Carabineros APP
-   127.0.0.1 viviendas.carabineros.dev
-   127.0.0.1 viviendas.carabineros.localhost
-   127.0.0.1 api.viviendas.carabineros.dev
-   127.0.0.1 api.viviendas.carabineros.localhost
+   127.0.0.1 giras.indomito.dev
+   127.0.0.1 giras.indomito.localhost
+   127.0.0.1 api.giras.indomito.dev
+   127.0.0.1 api.giras.indomito.localhost
    
 ```
 4. Construye y levanta los servicios definidos en el archivo `docker-compose.yml`:
@@ -60,13 +57,13 @@ Con respecto a las actualizaciones de información del sistema (funcionarios, re
    - Es importante tener estos volúmenes en cuenta cuando se realicen copias de seguridad o migraciones del sistema, ya
      que contienen datos críticos para el funcionamiento continuo de la aplicación.
    
-   **Volume: app_viviendas_carabineros_assets:**
+   **Volume: app_giras_indomito_assets:**
    Este volumen funciona como almacén de objetos, ofreciendo una solución para la persistencia de archivos y datos críticos como imagenes, documentos, etc.
    
-   **Volume: app_viviendas_carabineros_database:**
+   **Volume: app_giras_indomito_database:**
    Este volumen se encargará de mantener la persistencia de los datos agregados a la base de datos
 
-   **Volume: app_viviendas_carabineros_node_modules:**
+   **Volume: app_giras_indomito_node_modules:**
    Este volumen se utiliza para gestionar las dependencias de Node.js, permitiendo el almacenamiento y la compartición de 
    los módulos instalados en el proyecto. Mantiene la consistencia de las dependencias a través de diferentes entornos y 
    contenedores.

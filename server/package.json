@@ -1,7 +1,7 @@
 {
-  "name": "app-viviendas-carabineros",
+  "name": "app-giras-indomito",
   "version": "1.0.0",
-  "description": "Servicios de sistema carabineros",
+  "description": "Servicios de sitio giras indomito",
   "main": "server.js",
   "type": "module",
   "scripts": {
