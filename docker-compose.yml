@@ -1,0 +1,98 @@
+name: app_giras_indomito
+services:
+  mysql:
+    container_name: mysqldb_giras_indomito
+    image: mysql:8
+    platform: linux/amd64
+    env_file: ./.env
+    environment:
+      - MYSQL_ROOT_PASSWORD=$MYSQLDB_ROOT_PASSWORD
+      - MYSQL_USER=$MYSQLDB_USER
+      - MYSQL_DATABASE=$MYSQLDB_DATABASE
+      - MYSQL_PASSWORD=$MYSQLDB_PASSWORD
+      - TZ=America/Santiago
+    ports:
+      - "${MYSQLDB_LOCAL_PORT:-3308}:${MYSQLDB_DOCKER_PORT:-3306}"
+    logging:
+      driver: json-file
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - database:/var/lib/mysql
+      - ./database:/docker-entrypoint-initdb.d
+      - /etc/localtime:/etc/localtime:ro
+      - ./my.cnf:/etc/mysql/my.cnf
+
+  app:
+    container_name: angular_ionic_app_giras_indomito
+    restart: unless-stopped
+    depends_on:
+      - mysql
+      - server
+    links:
+      - server
+      - mysql
+    build: ./app
+    platform: linux/amd64
+    env_file: ./.env
+    ports:
+      - "8100:8100"
+      - "9229:9229"
+    volumes:
+      - ./app:/app
+      - node_modules_front:/app/node_modules
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.app.rule=Host(`giras.indomito.localhost`)'
+      - 'traefik.http.routers.app.entrypoints=http'
+
+    init: true
+    command: sh -c "npm install && ionic serve --inspect=0.0.0.0:9229 --host 0.0.0.0 --port 8100 --disable-host-check"
+
+  server:
+    container_name: webserver_giras_indomito
+    depends_on:
+      - mysql
+    links:
+      - mysql
+    build: ./server
+    platform: linux/amd64
+    env_file: ./.env
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_HOST=$MYSQLDB_HOST
+      - DB_USER=$MYSQLDB_USER
+      - DB_PASSWORD=$MYSQLDB_PASSWORD
+      - DB_NAME=$MYSQLDB_DATABASE
+      - DB_PORT=$MYSQLDB_DOCKER_PORT
+      - SMTP_SERVICE=${SMTP_SERVICE}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASS=${SMTP_PASS}
+    volumes:
+      - ./server:/server
+      - node_modules_back:/server/node_modules
+      - assets:/server/repository
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.server.rule=Host(`api.giras.indomito.localhost`)'
+      - 'traefik.http.routers.server.entrypoints=http'
+    init: true
+    command: sh -c "npm install && npm run dev"
+
+  traefik:
+    container_name: traefik_giras_indomito
+    image: traefik:v2.5.3
+    command: --api.insecure=true --providers.docker --log.level=debug --accesslog=true
+    ports:
+      - '80:80'
+      - '8080:8080'
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock'
+    labels:
+      - 'traefik.http.routers.traefik.entrypoints=http'
+
+volumes:
+  assets:
+  database:
+  node_modules_back:
+  node_modules_front:

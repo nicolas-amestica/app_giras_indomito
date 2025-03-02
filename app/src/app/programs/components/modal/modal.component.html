@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar style="--background: #D7FF00;">
+    <ion-buttons slot="start">
+      <ion-button style="color: black;" (click)="closeModal()" slot="start">Cerrar</ion-button>
+    </ion-buttons>
+    <ion-label class="custom-ion-label" color="light"><strong>Viaje {{ zone | titlecase }}</strong></ion-label>
+    <ion-buttons slot="end">
+      <ion-button style="color: black;" (click)="closeModalWithData()" slot="start"
+        [disabled]="!frmActivities.valid">Aceptar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <app-frm-section-title icon="bx bxs-edit-alt" title="Selecciona el destino que deseas ir"></app-frm-section-title>
+  <ion-item>
+    <ion-select label="Destino" label-placement="stacked" (ionChange)="selectDestination($event)"
+      placeholder="Selecciona un destino">
+      <ion-select-option *ngFor="let destination of destinations"
+        value="{{destination.name}}">{{destination.name}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <form [formGroup]="frmActivities">
+    <ion-row *ngFor="let activity of activities">
+      <ion-item style="width: 100%;" lines="none">
+        <ion-checkbox [value]='activity' slot='start' (ionChange)="addActivityToForm($event)" color="success">
+        </ion-checkbox>
+        <ion-label>
+          <p style="font-size: 1.1em;">{{ activity.name | titlecase }}</p>
+          <ion-note style="font-size: 0.8em;">{{ activity.description }}</ion-note>
+        </ion-label>
+      </ion-item>
+    </ion-row>
+    <br><br>
+  </form>
+</ion-content>

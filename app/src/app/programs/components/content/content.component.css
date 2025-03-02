@@ -1,0 +1,46 @@
+.container12 {
+  background-image: url('../../../../assets/backgrounds/fondo-web-2.jpg');
+  background-size: 100%;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  min-height: 100%;
+  text-align: center;
+}
+
+p {
+  font-size: 1rem;
+  color: #000000;
+}
+
+ion-list {
+  background: transparent;
+
+  ion-item {
+      --background: inherit;
+  }
+}
+
+.hover-item:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.light-card {
+  background-color: var(--ion-color-light); /* Fondo claro */
+  color: var(--ion-color-dark); /* Texto oscuro */
+  cursor: pointer;
+}
+
+/* Si el modo oscuro está activo, sobrescribe los estilos */
+@media (prefers-color-scheme: dark) {
+  .light-card {
+    background-color: var(--ion-color-light); /* Fondo claro */
+    color: var(--ion-color-dark); /* Texto oscuro */
+  }
+}
+
+ion-chip {
+  --background: #CFF905;
+  --color: #000000;
+}

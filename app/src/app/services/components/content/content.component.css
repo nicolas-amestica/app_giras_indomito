@@ -1,0 +1,47 @@
+.container2 {
+  background-color: #fff;
+  background-size: 100%;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  min-height: 100%;
+  text-align: center;
+}
+
+.div-subtitle {
+  width: 60%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: auto;
+  margin-bottom: 5rem;
+  text-align: justify;
+}
+
+p {
+  font-size: 1rem;
+  color: #000000;
+}
+
+.div-services-bariloche {
+  width: 70%;
+  margin: auto;
+  margin-bottom: 6rem;
+}
+
+ion-button {
+  --background: #D7FF00;
+  --color: black;
+  width: 15rem;
+}
+
+.col-container-img {
+  display: flex;
+  justify-content: center;  /* Centra horizontalmente */
+  align-items: center;      /* Centra verticalmente */
+  height: 100vh;            /* Altura del contenedor */
+  width: 100%;
+}
+
+ion-img {
+  max-width: 100%;         /* Ajusta el ancho máximo */
+  max-height: 100%;        /* Ajusta la altura máxima */
+}

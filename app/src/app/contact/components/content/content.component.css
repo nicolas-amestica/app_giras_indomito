@@ -1,0 +1,47 @@
+.container8 {
+  background-image: url('../../../../assets/backgrounds/fondo-web-2.jpg');
+  background-size: 100%;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  min-height: 100%;
+  text-align: center;
+}
+
+ p {
+  font-size: 1rem;
+  color: #000000;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #000000;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: #000000;
+}
+
+ion-button {
+  --background: #D7FF00;
+  --color: black;
+  margin-top: 15px;
+  margin-bottom: 5rem;
+}
+
+ion-input {
+  --color: #000;
+}
+
+ion-textarea {
+  color: black;
+}
+
+ion-label {
+  color: black;
+}
+
+ion-item {
+  --background: #fff;
+  --color: #000;
+}
