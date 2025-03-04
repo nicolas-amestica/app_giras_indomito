@@ -24,8 +24,9 @@
               </ion-card>
             </ion-col>
           </ion-row>
-          <ion-row class="ion-justify-content-center">
-          <!-- <ion-row *ngIf="activitiesSelected.length > 0" class="ion-justify-content-center"> -->
+
+          <!-- <ion-row class="ion-justify-content-center"> -->
+          <ion-row *ngIf="activitiesSelected.length > 0" class="ion-justify-content-center">
             <ion-item lines="none" style="cursor: pointer;">
                 <ion-button (click)="downloadCustomProgram()" expand="block" fill="clear" shape="round"
                 style="background-color: #D7FF00; color: black; font-size: 1.2em; border-radius: 12px; padding: 5px;">
@@ -37,16 +38,36 @@
           <ion-title>DESCARGA NUESTROS PROGRAMAS</ion-title>
           <br>
           <ion-row>
-            <ion-col *ngFor="let defaultProgram of defaultPrograms" size="12" size-lg="4" size-sm="6">
-              <ion-card class="light-card" (click)="downloadDefaultProgram(defaultProgram)">
-                <ion-card-header>
-                  <ion-card-title>{{defaultProgram.name}}</ion-card-title>
-                  <ion-card-subtitle>{{defaultProgram.description}}</ion-card-subtitle>
-                </ion-card-header>
+            <ion-col size="12" size-lg="4" size-sm="3"></ion-col>
+            <ion-col size="12" size-lg="4" size-sm="3">
+              <ion-item style="width: 100%;" lines="none">
+                <ion-select label="Zona" label-placement="stacked" (ionChange)="selectTravel($event)" placeholder="Selecciona una zona">
+                  <ion-select-option *ngFor="let destination of destinations" [value]="destination.destinations">{{destination.name}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12" size-lg="4" size-sm="3"></ion-col>
+          </ion-row>
 
-                <ion-card-content>
-                  Here's a small text description for the card content. Nothing more, nothing less.
-                </ion-card-content>
+          <ion-row *ngIf="destinationsOptionSelected.length > 0">
+            <ion-col size="12" size-lg="4" size-sm="3"></ion-col>
+            <ion-col size="12" size-lg="4" size-sm="3">
+              <ion-item style="width: 100%;" lines="none">
+                <ion-select label="Destino" label-placement="stacked" (ionChange)="selectZone($event)" placeholder="Selecciona un destino">
+                  <ion-select-option *ngFor="let destinationOptionSelected of destinationsOptionSelected" [value]="destinationOptionSelected">{{destinationOptionSelected.name}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12" size-lg="4" size-sm="3"></ion-col>
+          </ion-row>
+
+          <ion-row *ngIf="files.length > 0">
+            <ion-col *ngFor="let file of files">
+              <ion-card class="light-card" (click)="downloadDefaultProgram(file)">
+                <ion-card-header>
+                  <ion-card-title>{{file.name}}</ion-card-title>
+                  <ion-card-content>{{file.link}}</ion-card-content>
+                </ion-card-header>
               </ion-card>
             </ion-col>
           </ion-row>

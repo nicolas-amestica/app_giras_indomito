@@ -1,7 +1,7 @@
 import { ModalController } from "@ionic/angular";
 import { Component, OnInit, Input } from "@angular/core";
 import { FormGroup, FormBuilder, FormArray, Validators } from "@angular/forms";
-import { Destination, Activity } from "../../interfaces/travel.interface";
+import { Destination, Activity } from "../../interfaces/content.interface";
 
 @Component({
   selector: 'app-modal',

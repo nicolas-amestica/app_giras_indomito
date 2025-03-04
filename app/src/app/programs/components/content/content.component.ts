@@ -1,9 +1,10 @@
 import { ModalController } from "@ionic/angular";
 import { Component, OnInit } from "@angular/core";
 import { ModalComponent } from "../modal/modal.component";
-import { Activity, Destination } from "../../interfaces/travel.interface";
+import { Activity, dest, Destination, File } from "../../interfaces/content.interface";
 import { DownloadService } from "src/app/shared/services/download.service";
 import generatePDF from "src/app/libs/pdf";
+import { DESTINATIONS } from "../../constants/program.contant";
 
 @Component({
 	selector: "app-about-content",
@@ -687,9 +688,15 @@ export class ContentProgramsComponent implements OnInit {
 		},
 	];
 
+  destinations = DESTINATIONS;
+
 	activitiesSelected: Activity[] = [];
   destinationSelected: Destination[] = [];
   zoneSelected = "";
+
+  destinationsOptionSelected: any[] = [];
+  files: File[] = [];
+
 
 	constructor(
 		private downloadService: DownloadService,
@@ -698,11 +705,7 @@ export class ContentProgramsComponent implements OnInit {
 
 	ngOnInit(): void { }
 
-	downloadDefaultProgram(defaultProgram: {
-		name: string;
-		description: string;
-		link: string;
-	}) {
+	downloadDefaultProgram(defaultProgram: File) {
 		this.downloadService
 			.downloadPdf(defaultProgram.link)
 			.subscribe((blob: Blob) => {
@@ -731,7 +734,6 @@ export class ContentProgramsComponent implements OnInit {
 		// generatePDF(products, reciboNo, fecha);
 	}
 
-
 	async openModalDestination(destinations: Destination[], zone: string) {
 		const modal = await this.modalCtrl.create({
 			component: ModalComponent,
@@ -740,7 +742,7 @@ export class ContentProgramsComponent implements OnInit {
 				zone,
 			},
 			presentingElement: await this.modalCtrl.getTop(),
-			mode: "ios",
+			mode: "md",
 		});
 
 		await modal.present();
@@ -756,7 +758,18 @@ export class ContentProgramsComponent implements OnInit {
 
   removeActivity(activity: Activity) {
     this.activitiesSelected = this.activitiesSelected.filter((act) => act.name !== activity.name);
-    console.log(this.activitiesSelected);
+  }
 
+  selectTravel(event: Event) {
+	  const { detail } = event as CustomEvent;
+    const { value } = detail;
+    this.destinationsOptionSelected = value;
+    this.files = [];
+  }
+
+  selectZone(event: Event) {
+    const { detail } = event as CustomEvent;
+    const { value } = detail;
+    this.files = value.files;
   }
 }

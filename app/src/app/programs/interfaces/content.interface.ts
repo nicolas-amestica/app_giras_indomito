@@ -14,3 +14,17 @@ export interface Activity {
   name: string;
   description: string;
 }
+
+export interface Zone {
+  name: string[];
+}
+
+export interface File {
+  name: string;
+  link: string;
+}
+
+export interface dest {
+  name: string;
+  files: File[];
+}
