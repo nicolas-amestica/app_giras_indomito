@@ -31,12 +31,12 @@ ion-modal::part(backdrop) {
 }
 
 ion-modal ion-toolbar {
-  --background: rgb(14 116 144);
+  --background: red;
   --color: white;
 }
 
 ion-modal.stack-modal {
-  --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+  --box-shadow: 0 28px 48px red;
   --backdrop-opacity: var(--ion-backdrop-opacity, 0.32);
 }
 

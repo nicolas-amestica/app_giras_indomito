@@ -25,3 +25,8 @@ p {
   background-color: transparent;
   box-shadow: none;
 }
+
+.large-title {
+  font-size: 2em;
+}
+

@@ -1,11 +1,11 @@
 <ion-header>
-  <ion-toolbar style="--background: #D7FF00;">
+  <ion-toolbar style="--background: #525659;">
     <ion-buttons slot="start">
-      <ion-button style="color: black;" (click)="closeModal()" slot="start">Cerrar</ion-button>
+      <ion-button style="color: white;" (click)="closeModal()" slot="start">Cerrar</ion-button>
     </ion-buttons>
-    <ion-label class="custom-ion-label" color="light"><strong>Viaje {{ zone | titlecase }}</strong></ion-label>
+    <ion-label class="custom-ion-label" style="color: white;">Viaje {{ zone | titlecase }}</ion-label>
     <ion-buttons slot="end">
-      <ion-button style="color: black;" (click)="closeModalWithData()" slot="start"
+      <ion-button style="color: white;" (click)="closeModalWithData()" slot="start"
         [disabled]="!frmActivities.valid">Aceptar</ion-button>
     </ion-buttons>
   </ion-toolbar>
