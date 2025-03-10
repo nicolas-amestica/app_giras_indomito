@@ -3,7 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { ModalComponent } from "../modal/modal.component";
 import { Activity, dest, Destination, File } from "../../interfaces/content.interface";
 import { DownloadService } from "src/app/shared/services/download.service";
-import generatePDF from "src/app/libs/pdf";
+import generatePDF from "src/app/shared/libs/pdf-maker";
 import { DESTINATIONS } from "../../constants/program.contant";
 
 @Component({
@@ -337,7 +337,7 @@ export class ContentProgramsComponent implements OnInit {
 			],
 		},
 		{
-			zone: "Mixto",
+			zone: "Mixtos",
       img: "assets/custom-program-images/mixto.jpg",
 			description: "Vive lo mejor de ambos mundos con nuestras giras de estudio mixtas. Explora los impresionantes paisajes de Pucón y el Sur de Chile, y aventúrate más" +
         "allá de las fronteras hacia Bariloche y Camboriú. Estas experiencias únicas combinan turismo aventura, aprendizaje y diversión, ofreciendo a los estudiantes la" +
@@ -719,19 +719,19 @@ export class ContentProgramsComponent implements OnInit {
 	}
 
 	downloadCustomProgram() {
-		// const products = [
-		// 	{ nombre: "Parlante", cantidad: 1, total: 1000 },
-		// 	{ nombre: "Laptop", cantidad: 2, total: 2000 },
-		// 	{ nombre: "Televisor", cantidad: 3, total: 3000 },
-		// 	{ nombre: "Radio", cantidad: 4, total: 4000 },
-		// 	{ nombre: "Chromecast", cantidad: 5, total: 5000 },
-		// ];
+		const products = [
+			{ nombre: "Parlante", cantidad: 1, total: 1000 },
+			{ nombre: "Laptop", cantidad: 2, total: 2000 },
+			{ nombre: "Televisor", cantidad: 3, total: 3000 },
+			{ nombre: "Radio", cantidad: 4, total: 4000 },
+			{ nombre: "Chromecast", cantidad: 5, total: 5000 },
+		];
 
 		// const reciboNo = "123456789";
 		// const fecha = new Date().toLocaleDateString();
 
 		generatePDF({ activities: this.activitiesSelected, destination: this.destinationSelected, zone: this.zoneSelected });
-		// generatePDF(products, reciboNo, fecha);
+		// generatePDF(products);
 	}
 
 	async openModalDestination(destinations: Destination[], zone: string) {

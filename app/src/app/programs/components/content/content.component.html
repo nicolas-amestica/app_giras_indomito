@@ -13,7 +13,7 @@
           <ion-row>
             <ion-col *ngFor="let travel of travels" size="12" size-lg="4" size-sm="6">
               <ion-card class="light-card hover-item" (click)="openModalDestination(travel.destinations, travel.zone)">
-                <img alt="{{travel.zone}}" src="{{travel.img}}" />
+                <!-- <img alt="{{travel.zone}}" src="{{travel.img}}" /> -->
                 <ion-card-header>
                   <ion-card-title>{{travel.zone | titlecase}}</ion-card-title>
                 </ion-card-header>
@@ -25,16 +25,14 @@
             </ion-col>
           </ion-row>
 
-          <!-- <ion-row class="ion-justify-content-center"> -->
-          <ion-row *ngIf="activitiesSelected.length > 0" class="ion-justify-content-center">
-            <ion-col size-sm="6" size-md="6" size-lg="6" size-xl="6" size-xs="12">
+          <ion-row class="ion-justify-content-center">
+            <ion-col size="12" size-lg="4" size-sm="6" class="ion-text-center" style="justify-items: center;">
               <ion-item lines="none" style="cursor: pointer;">
-                <ion-button (click)="downloadCustomProgram()" expand="block" fill="clear" shape="round"
-                  style="background-color: #D7FF00; color: black; font-size: 1.2em; border-radius: 12px; padding: 5px;">
-                  <label>Descargar pdf</label>
-                </ion-button>
+              <ion-button (click)="downloadCustomProgram()" expand="block" fill="clear" shape="round"
+                style="background-color: #D7FF00; color: black; font-size: 1.2em; border-radius: 12px; padding: 5px;">
+                <label>Descargar pdf</label>
+              </ion-button>
               </ion-item>
-
             </ion-col>
           </ion-row>
           <br><br><br>
@@ -75,7 +73,8 @@
                 <ion-card-header>
                   <ion-card-title><b>{{file.name}}</b></ion-card-title>
                   <br>
-                  <img class="center-image" alt="pdf" src="assets/default_program-images/image.png" width="200" height="250" />
+                  <img class="center-image" alt="pdf" src="assets/default_program-images/image.png" width="200"
+                    height="250" />
                   <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
                 </ion-card-header>
                 <ion-card-content>{{file.link}}</ion-card-content>
