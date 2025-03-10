@@ -3,29 +3,37 @@ export const DESTINATIONS = [{
     destinations: [{
         name: "Pucón",
         files: [{
-            name: "Pucón ECO (Terrestre)",
-            link: "puconeco.pdf"
+            name: "Pucón ECO",
+            link: "puconeco.pdf",
+            transport: "Terrestre"
           }, {
-            name: "Pucón LIGHT (Terrestre)",
-            link: "puconlight.pdf"
+            name: "Pucón LIGHT",
+            link: "puconlight.pdf",
+            transport: "Terrestre"
           }, {
-            name: "Pucón FULL (Terrestre)",
-            link: "puconfull.pdf"
+            name: "Pucón FULL",
+            link: "puconfull.pdf",
+            transport: "Terrestre"
           }, {
-            name: "Pucón PRO (Terrestre)",
-            link: "puconpro.pdf"
+            name: "Pucón PRO",
+            link: "puconpro.pdf",
+            transport: "Terrestre"
           }, {
-            name: "Pucón ECO (Aereo)",
-            link: "puconeco.pdf"
+            name: "Pucón ECO",
+            link: "puconeco.pdf",
+            transport: "Aereo"
           }, {
-            name: "Pucón LIGHT (Aereo)",
-            link: "puconlight.pdf"
+            name: "Pucón LIGHT",
+            link: "puconlight.pdf",
+            transport: "Aereo"
           }, {
-            name: "Pucón FULL (Aereo)",
-            link: "puconfull.pdf"
+            name: "Pucón FULL",
+            link: "puconfull.pdf",
+            transport: "Aereo",
           }, {
-            name: "Pucón PRO (Aereo)",
-            link: "puconpro.pdf"
+            name: "Pucón PRO",
+            link: "puconpro.pdf",
+            transport: "Aereo"
           }]
       }, {
         name: "Sur de Chile",

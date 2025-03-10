@@ -22,6 +22,7 @@ export interface Zone {
 export interface File {
   name: string;
   link: string;
+  transport: string;
 }
 
 export interface dest {
