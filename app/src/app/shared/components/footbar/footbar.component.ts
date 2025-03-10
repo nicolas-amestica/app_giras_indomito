@@ -5,4 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './footbar.component.html',
   styleUrl: './footbar.component.css'
 })
-export class FootbarComponent { }
+export class FootbarComponent {}

@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { FootbarComponent } from './components/footbar/footbar.component';
-import { DownloadService } from './services/download.service';
 import { FrmSectionTitleComponent } from './components/frm-section-title/frm-section-title.component';
 
 @NgModule({

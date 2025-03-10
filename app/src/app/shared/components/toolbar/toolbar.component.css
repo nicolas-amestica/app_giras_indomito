@@ -36,11 +36,11 @@ ion-header {
 }
 
 ion-menu::part(backdrop) {
-  background-color: #D7FF00;
+  background-color: #000000;
 }
 
 ion-menu::part(container) {
-  border-radius: 0 20px 20px 0;
+  border-radius: 0 5px 5px 0;
 
   box-shadow: 4px 0px 16px black;
 }
