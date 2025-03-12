@@ -8,6 +8,8 @@ import { ContactPageRoutingModule } from './contact-routing.module';
 import { IntroductionContactComponent } from './components/introduction/introduction.component';
 import { ContentContactComponent } from './components/content/content.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   imports: [
@@ -16,7 +18,8 @@ import { ContentContactComponent } from './components/content/content.component'
     IonicModule,
     ContactPageRoutingModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   declarations: [
     ContactPage,

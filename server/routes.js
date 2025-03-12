@@ -15,24 +15,14 @@ import propietariesAPI from "./src/api-propietaries/propietaries.api.js";
 import propertyTypeAPI from "./src/api-property-type/property-type.api.js";
 import conservationsAPI from "./src/api-conservations/conservations.api.js";
 import authenticationAPI from './src/api-authentication/authentication.api.js';
+import sendEmailApi from "./src/api-send-email/send-email.api.js";
 
 const routes = (app) => {
-  app.use('/zonas', isAuth, zonesAPI);
-  app.use('/grados', isAuth, gradesAPI);
   app.use('/almacenamiento', storageAPI);
   app.use('/healthcheck', healthcheckAPI);
-  app.use('/regiones', isAuth, regionAPI);
-  app.use('/comunas', isAuth, communeAPI);
   app.use('/reportes', isAuth, reportsAPI);
   app.use('/autenticar', authenticationAPI);
-  app.use('/viviendas', isAuth, housingAPI);
-  app.use('/arriendos', isAuth, rentalsAPI);
-  app.use('/provincias', isAuth, provincesAPI);
-  app.use('/funcionarios', isAuth, officialsAPI);
-  app.use('/prefecturas', isAuth, prefectureAPI);
-  app.use('/propietarios', isAuth, propietariesAPI);
-  app.use('/tipos-inmueble', isAuth, propertyTypeAPI);
-  app.use('/conservaciones', isAuth, conservationsAPI);
+  app.use('/send-email', sendEmailApi);
 };
 
 export default routes;
