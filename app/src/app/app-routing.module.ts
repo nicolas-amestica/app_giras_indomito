@@ -7,6 +7,7 @@ export const ROOT_ROUTES = {
   contact         : 'contact',
   about           : 'about',
   programs        : 'programs',
+  login           : 'login',
 };
 
 const routes: Routes = [

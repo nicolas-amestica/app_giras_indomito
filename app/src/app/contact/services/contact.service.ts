@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {Contact} from "../interfaces/contact.interface";
-import {catchError, Observable, of, tap} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
+import { catchError, filter, Observable, of, tap } from "rxjs";
+import { Contact } from "../interfaces/contact.interface";
 import { environment } from "../../../environments/environment";
 
 const BASE_API_URL = environment.apiBaseUrl
@@ -15,16 +15,21 @@ export class ContactService {
     private httpClient: HttpClient
   ) { }
 
-  sendEmail(contact: Contact) {
-    const url = `${BASE_API_URL}/send-email`;
+  sendEmail(contactForm: Contact) {
+    const url = `${BASE_API_URL}/v1/contact/send-email`;
 
-    return this.httpClient.post(url, contact).pipe(
-      tap((email) => {
-        return email;
-      }),
+    return this.httpClient.post<any>(url, contactForm).pipe(
+      tap(({message}) => message),
       catchError(error => {
-        return of(error.error.error);
+        return of(error);
       })
     );
   }
 }
+
+
+// getHousing(): Observable<Housing[]> {
+//   return this.http.get<HousingResponses>(`${BASE_API_URL}/viviendas?limit=10000&page=1`).pipe(
+//     map(({result}) => result.data)
+//   );
+// }

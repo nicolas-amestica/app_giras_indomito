@@ -68,6 +68,7 @@ services:
       - SMTP_SERVICE=${SMTP_SERVICE}
       - SMTP_USER=${SMTP_USER}
       - SMTP_PASS=${SMTP_PASS}
+      - RECEIVER_EMAIL=${RECEIVER_EMAIL}
     volumes:
       - ./server:/server
       - node_modules_back:/server/node_modules
