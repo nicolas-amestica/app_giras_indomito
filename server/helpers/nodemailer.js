@@ -18,8 +18,8 @@ const sendEmail = async (to, subject, text, html) => {
     });
   
     const mailOptions = {
-      from: to,
-      to: process.env.RECEIVER_EMAIL,
+      from: process.env.SMTP_USER,
+      to: to,
       subject: subject,
       text: text,
       html: html

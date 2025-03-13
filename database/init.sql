@@ -37,3 +37,20 @@ CREATE TABLE IF NOT EXISTS `app_giras_indomito`.`escalafones`
 INSERT INTO escalafones VALUES (1,'110100','Gral. Director');
 INSERT INTO escalafones VALUES (2,'110100','Gral. Inspector');
 INSERT INTO escalafones VALUES (3,'110100','General');
+
+
+-- app_giras_indomito.usuario definition
+CREATE TABLE IF NOT EXISTS `app_giras_indomito`.`usuario` (
+  `correo` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `clave` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nombre` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `apellido_paterno` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `apellido_materno` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sexo` char(1) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `activo` tinyint NOT NULL DEFAULT '1',
+  PRIMARY KEY (`correo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO app_giras_indomito.usuario (correo,clave,nombre,apellido_paterno,apellido_materno,sexo,created_at,activo) VALUES
+	 ('NIAMESVI3@GMAIL.COM','Blutengel1.','NICOLÁS','AMÉSTICA','VIDAL','M','2025-03-13 13:34:45',1);

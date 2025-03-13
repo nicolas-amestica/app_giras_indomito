@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
         const { name, email, phone, message } = req.body;
 
         const result = await sendEmail(
-            process.env.SMTP_USER,
+            process.env.RECEIVER_EMAIL,
             'Formulario de contacto',
             null,
             `<p>Estimado/a,</p>
