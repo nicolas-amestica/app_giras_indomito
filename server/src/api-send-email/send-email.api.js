@@ -16,9 +16,9 @@ router.post('/', async (req, res) => {
             null,
             `<p>Estimado/a,</p>
             <p>Llegó el siguiente mensaje de ${name}:</p>
-            <p>Mensaje: "${message}"</p>
+            <p>Su nro. teléfono es: "${phone}"</p>
             <p>Su email es: "${email}"</p>
-            <p>Su nrp. telpefono es: "${phone}"</p>
+            <p>Su mensaje es: "${message}"</p>
             `,
         );
 
