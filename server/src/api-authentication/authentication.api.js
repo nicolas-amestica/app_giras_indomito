@@ -10,7 +10,6 @@ const router = express.Router();
 router.post('/login', async (req, res) => {
   try {
     const { correo, clave } = req.body;
-
     if (!correo || !clave) throw { message: 'Faltan parámetros de entrada', code: 400 };
 
     const credentials = {
@@ -40,16 +39,16 @@ router.post('/login', async (req, res) => {
     if (!result) throw { message: 'Credenciales inválidas', code: 400 };
 
     const comparePassword = await argon2.verify(result.clave, credentials.clave);
-    // if (!comparePassword) throw { message: 'Credenciales inválidas', code: 400 };
+    if (!comparePassword) throw { message: 'Credenciales inválidas', code: 400 };
 
-    // delete result.clave;
-    // const { rol, codigo } = result;
+    result.clave = undefined;
+    const { correo: email } = result;
 
-    // const token = jwt.sign({ rol, codigo }, process.env.SECRET_TOKEN);
+    const token = jwt.sign({ email }, process.env.SECRET_TOKEN);
 
-    // const results = {...result, token}
+    const results = {...result, token}
 
-    res.status(200).json({ message: 'Usuario autenticado', result: result });
+    res.status(200).json({ message: 'Usuario autenticado', result: results });
   } catch (err) {
     console.log(err);    
     res.status(err?.code || 500).json({ message: 'No se ha autenticado el usuario', error: err });
