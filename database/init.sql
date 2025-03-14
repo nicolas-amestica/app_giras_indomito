@@ -53,4 +53,4 @@ CREATE TABLE IF NOT EXISTS `app_giras_indomito`.`usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO app_giras_indomito.usuario (correo,clave,nombre,apellido_paterno,apellido_materno,sexo,created_at,activo) VALUES
-	 ('NIAMESVI3@GMAIL.COM','Blutengel1.','NICOLÁS','AMÉSTICA','VIDAL','M','2025-03-13 13:34:45',1);
+	 ('NIAMESVI3@GMAIL.COM','$argon2id$v=19$m=65536,t=3,p=4$MY7LFU6oVxLdQ4w026AlHA$gre6kRxyicusg84HiD186ALWq8dJHxVNE+iSV9Lnous','NICOLÁS','AMÉSTICA','VIDAL','M','2025-03-13 13:34:45',1);

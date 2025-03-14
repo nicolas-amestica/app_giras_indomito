@@ -27,10 +27,13 @@ const routes: Routes = [
     path: ROOT_ROUTES.about,
     loadChildren: () => import('./about/about.module').then((m) => m.AboutPageModule)
   }, {
+    path: ROOT_ROUTES.login,
+    loadChildren: () => import('./login/login.module').then((m) => m.LoginPageModule)
+  }, {
     path      : '**',
     pathMatch : 'full',
     redirectTo: ROOT_ROUTES.home,
-  },
+  }
 ];
 
 @NgModule({
