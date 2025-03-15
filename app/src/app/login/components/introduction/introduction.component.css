@@ -1,10 +1,6 @@
 .container {
   background-image: url('../../../../assets/backgrounds/fondo-web.jpg');
-  background-size: 100%;
-  padding-top: 10rem;
-  padding-bottom: 10rem;
-  min-height: 100%;
-  text-align: center;
+   background-size: 100%;
 }
 
 h1 {
@@ -30,3 +26,22 @@ p {
   font-size: 2em;
 }
 
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.login-card {
+  width: 100%;
+  max-width: 400px;
+}
+.login-title {
+  text-align: center;
+}
+
+ion-button {
+  --background: #D7FF00;
+  --color: black;
+  margin-top: 15px;
+}

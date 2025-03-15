@@ -28,7 +28,7 @@ const routes: Routes = [
     loadChildren: () => import('./about/about.module').then((m) => m.AboutPageModule)
   }, {
     path: ROOT_ROUTES.login,
-    loadChildren: () => import('./login/login.module').then((m) => m.LoginPageModule)
+    loadComponent: () => import('./login/pages/login.page').then((m) => m.LoginPage)
   }, {
     path      : '**',
     pathMatch : 'full',

@@ -1,5 +1,6 @@
-import { Observable } from 'rxjs';
+import type { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
+// biome-ignore lint/style/useImportType: <explanation>
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -7,6 +8,8 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class DownloadService {
+
+
 
   constructor(
     private http: HttpClient

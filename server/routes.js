@@ -9,7 +9,7 @@ const routes = (app) => {
   app.use('/almacenamiento', storageAPI);
   app.use('/healthcheck', healthcheckAPI);
   app.use('/reportes', isAuth, reportsAPI);
-  app.use('/autenticar', authenticationAPI);
+  app.use('/v1/autenticar', authenticationAPI);
   app.use('/v1/contact/send-email', sendEmailApi);
 };
 

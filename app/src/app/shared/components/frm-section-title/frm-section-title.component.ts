@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, type OnInit } from '@angular/core';
 
 @Component({
+  standalone : false,
   selector   : 'app-frm-section-title',
   templateUrl: './frm-section-title.component.html',
   styleUrls  : ['./frm-section-title.component.css'],
