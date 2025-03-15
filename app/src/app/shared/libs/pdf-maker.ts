@@ -1,5 +1,6 @@
 import * as pdfMake from "pdfmake/build/pdfmake";
 import * as pdfFonts from "pdfmake/build/vfs_fonts";
+
 import { HEADER, LOGOS, PDF_IMAGES, FOOTER } from "../../../assets/img";
 
 (pdfMake as any).vfs = pdfFonts.vfs;

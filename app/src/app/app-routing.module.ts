@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, type Routes } from '@angular/router';
 
 export const ROOT_ROUTES = {
   home            : 'home',
@@ -7,7 +7,7 @@ export const ROOT_ROUTES = {
   contact         : 'contact',
   about           : 'about',
   programs        : 'programs',
-  login           : 'login',
+  login           : 'login'
 };
 
 const routes: Routes = [
@@ -33,7 +33,8 @@ const routes: Routes = [
     path      : '**',
     pathMatch : 'full',
     redirectTo: ROOT_ROUTES.home,
-  }
+  },
+
 ];
 
 @NgModule({

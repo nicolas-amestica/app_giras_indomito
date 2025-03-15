@@ -18,7 +18,7 @@ export class ExperiencesComponent implements OnInit{
       navigation: {
         enabled: true,
       },
-      slidesPerView: 3,
+      slidesPerView: 1,
       spaceBetween: 10,
       loop: true,
       autoplay: {

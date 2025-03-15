@@ -7,7 +7,7 @@ import { DownloadService } from "src/app/shared/services/download.service";
 import { Activity, Destination, File } from "../../interfaces/content.interface";
 
 @Component({
-	selector: "app-about-content",
+	selector: "app-program-content",
 	templateUrl: "./content.component.html",
 	styleUrl: "./content.component.css",
 })
