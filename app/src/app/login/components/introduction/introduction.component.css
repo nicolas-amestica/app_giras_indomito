@@ -34,7 +34,8 @@ p {
 }
 .login-card {
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
+  padding: 10px;
 }
 .login-title {
   text-align: center;
@@ -44,4 +45,11 @@ ion-button {
   --background: #D7FF00;
   --color: black;
   margin-top: 15px;
+}
+
+.logo {
+  width: 100%;
+  max-width: 150px;
+  margin: auto;
+  display: block;
 }

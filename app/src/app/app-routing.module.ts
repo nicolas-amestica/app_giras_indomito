@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, type Routes } from '@angular/router';
+import { authGuard } from './shared/guards/auth.guard';
 
 export const ROOT_ROUTES = {
   home            : 'home',
@@ -7,7 +8,8 @@ export const ROOT_ROUTES = {
   contact         : 'contact',
   about           : 'about',
   programs        : 'programs',
-  login           : 'login'
+  login           : 'login',
+  menu            : 'menu',
 };
 
 const routes: Routes = [
@@ -30,11 +32,14 @@ const routes: Routes = [
     path: ROOT_ROUTES.login,
     loadComponent: () => import('./login/pages/login.page').then((m) => m.LoginPage)
   }, {
+    path: ROOT_ROUTES.menu,
+    canActivate: [authGuard],
+    loadComponent: () => import('./admin/menu/pages/menu.page').then((m) => m.MenuPage)
+  }, {
     path      : '**',
     pathMatch : 'full',
     redirectTo: ROOT_ROUTES.home,
   },
-
 ];
 
 @NgModule({

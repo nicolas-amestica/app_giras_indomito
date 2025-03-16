@@ -1,5 +1,8 @@
 <div class="login-container container">
   <ion-card class="login-card">
+    <ion-card-header>
+      <ion-img src="assets/logo/logo-web.png" class="logo" width="50px"></ion-img>
+    </ion-card-header>
     <ion-card-content>
       <form [formGroup]="loginForm">
         <ion-item>
@@ -8,7 +11,7 @@
         <ion-item>
           <ion-input formControlName="clave" label="Contraseña" labelPlacement="floating" placeholder="Ej: 123abc" type="password" required></ion-input>
         </ion-item>
-        <ion-button expand="block" (click)="sendForm()">Ingresar<ion-spinner *ngIf="isLoading" name="lines"></ion-spinner></ion-button>
+        <ion-button [disabled]="!loginForm.valid" expand="block" (click)="sendForm()">Ingresar<ion-spinner *ngIf="isLoading" name="lines"></ion-spinner></ion-button>
 
         <p class="ion-text-center" *ngIf="message">
           <ion-text color="danger">{{message}}</ion-text>

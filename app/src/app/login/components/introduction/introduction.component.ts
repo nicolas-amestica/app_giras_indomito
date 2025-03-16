@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import {
 	FormBuilder,
 	FormGroup,
@@ -13,6 +13,8 @@ import {
 	IonButton,
 	IonSpinner,
 	IonText,
+	IonCardHeader,
+	IonImg,
 } from "@ionic/angular/standalone";
 import { Login } from "../../interfaces/login.interface";
 import { Subject, takeUntil } from "rxjs";
@@ -22,6 +24,8 @@ import { CommonModule } from "@angular/common";
 @Component({
 	standalone: true,
 	imports: [
+		IonImg,
+		IonCardHeader,
 		IonText,
 		IonSpinner,
 		IonButton,
@@ -36,7 +40,7 @@ import { CommonModule } from "@angular/common";
 	templateUrl: "./introduction.component.html",
 	styleUrl: "./introduction.component.css",
 })
-export class IntroductionLoginComponent implements OnInit {
+export class IntroductionLoginComponent implements OnInit, OnDestroy {
 	loginForm: FormGroup = new FormGroup({});
 	destroy = new Subject();
 	isLoading = false;
@@ -49,9 +53,18 @@ export class IntroductionLoginComponent implements OnInit {
 		this.isLoading = false;
 	}
 
+	ngOnDestroy(): void {
+		this.destroy.next("next");
+		this.destroy.complete();
+	}
+
 	ngOnInit(): void {
 		this.buildForm();
 	}
+
+  // ionViewWillEnter() {
+  //   this.loginService.logout();
+  // }
 
 	sendForm() {
 		if (this.loginForm.valid) {
@@ -72,7 +85,7 @@ export class IntroductionLoginComponent implements OnInit {
 	buildForm() {
 		this.loginForm = this.formBuilder.group({
 			correo: ["", [Validators.required, Validators.email]],
-			clave: ["", [Validators.required, Validators.minLength(6)]],
+			clave: ["", [Validators.required, Validators.minLength(8)]],
 		});
 	}
 }
